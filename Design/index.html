@@ -1,0 +1,330 @@
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <title>Admin Page</title>
+
+    <style type="text/css" media="screen">
+        @import url( style.css );
+    </style>
+
+</head>
+<body>
+	
+    <div id="wrapper">
+
+            <div id="header">
+                <h3><a href="#">Bangladesh Security Agency</a></h3>
+            </div>
+
+            <div id="sidebar">
+                <h2>Navigation</h2>
+                <ul>
+                    <li><a href="#">Go to User</a></li>
+                    <li><a href="#">Go to priviledged User</a></li>
+                    <li><a href="#">SQL command page</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+                <br>
+                <h2>Database Options</h2>
+                <ul>
+                    <li><button id="b_insert" class='button_option'>Insert Data</button></li>
+                    <li><button id="b_delete" class='button_option'>Delete Data</button></li>
+                    <li><button id="b_update" class='button_option'>Update Data</button></li>
+                </ul>
+                <br>
+                <h2>Database</h2>
+                <ul>
+                    <li><button id='b1' class='button_option'>Criminal database</button></li>
+                    <li><button id='b2' class='button_option'>Crime database</button></li>
+                    <li><button id='b3' class='button_option'>Investigation database</button></li>
+                    <li><button id='b4' class='button_option'>Convicted for database</button></li>
+                    <li><button id='b5' class='button_option'>Criminal (Parole) database</button></li>
+                    <li><button id='b6' class='button_option'>Criminal (Jail) database</button></li>
+                    
+                </ul>
+
+
+            </div>
+
+            <div id="body">
+
+                <div class="entry">
+                    <div class="entrybody">
+                        <form action="" method="post">
+                            <div class="options_panel_main_body">
+                                Please choose a action from Database Options.
+
+
+                            </div>  
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="footer">
+                <div id="footer-nav">
+    <!--				<a href="#">Link One</a> <a href="#">Link two</a> <a href="#">Link three</a> <a href="#">Link four</a>          -->
+                </div>
+                <div id="copyright">
+                    This site is designed for CSE370 course of BRAC University.<br />
+                    Design by Ony Hoque
+                </div>
+            </div>
+
+    </div>
+
+</body>
+    
+    <script>
+        
+    $(document).ready(function(){
+        var i = 0;
+        
+        $("#b_insert").click(function(){
+            $(".options_panel_main_body").html("Please select a option from the database at the left side panel.");
+                i = 1;
+            });
+        $("#b_delete").click(function(){
+            $(".options_panel_main_body").html("Please select a option from the database at the left side panel.");
+                i = 2;
+            });
+        $("#b_update").click(function(){
+            $(".options_panel_main_body").html("Please select a option from the database at the left side panel.");
+                i = 3;
+            });
+        
+        $("#b1").click(function(){
+            if(i == 1)
+                {
+                    $(".options_panel_main_body").html("First Name :<br>"+
+                                                        "<input type = 'text' name = 'Fname'><br>"+
+                                                        "Middle Name :<br>"+
+                                                        "<input type = 'text' name = 'Mname'><br>"+
+                                                        "Last Name :<br>"+
+                                                        "<input type = 'text' name = 'Lname'><br>"+
+                                                        "SSN : <br>"+
+                                                        "<input type = 'text' name = 'SSN'><br>"+
+                                                        "Birthdate : <br>"+
+                                                        "<input type = 'tex' name = 'birth_date'><br>"+
+                                                        "Crime Level :<br>"+
+                                                        "<input type = 'text' name = 'crime_no'><br>"+
+                                                        "<input type = 'submit' name = 'submit_criminal' value = 'Insert'><br>");
+                }
+            
+            
+            if(i == 2)
+                {
+                    $(".options_panel_main_body").html("Please enter SSN  "+
+                                                        "<input type = 'text' name = 'SSN'><br>"+
+                                                        
+                                                        "<input type = 'submit' name = 'delete' value = 'delete'><br>");
+                }
+            
+            if(i == 3)
+                {
+                    $(".options_panel_main_body").html("Please enter SSN first:<br>"+
+                                                        "<input type = 'text' name = 'SSN' placeholder='Enter SSN here'><br>"+
+                                                        "Please only choose filed/s you want to update:<br><br>"+
+                                                       
+                                                       "<input type = 'text' name = 'Fname' placeholder='First name'><br>"+
+                                                       "<input type = 'text' name = 'Mname' placeholder='Middle name'><br>"+
+                                                       "<input type = 'text' name = 'Lname' placeholder='Last name'><br>"+
+                                                       "<input type = 'tex' name = 'birth_date' placeholder='birth date'><br>"+
+                                                       "<input type = 'text' name = 'crime_no' placeholder='Crime Number'><br><br>"+
+                                                       
+                                                        "<input type = 'submit' name = 'update' value = 'update'><br>");
+                }
+            
+            });
+        $("#b2").click(function(){
+            if(i == 1)
+                {
+                    $(".options_panel_main_body").html(""+
+                                                        "Investigation Number :<br>"+
+                                                        "<input type = 'text' name = 'Investigation No'><br>"+
+                                                        "Place : <br>"+
+                                                        "<input type = 'text' name = 'Place'><br>"+
+                                                        "Crime Date : <br>"+
+                                                        "<input type = 'text' name = 'Date'><br>"+
+                                                        "Crime Type : <br>"+
+                                                        "<input type = 'text' name = 'Crime_Type'><br>"+
+                                                        "<input type = 'submit' name = 'submitCrime' value = 'Insert'><br>");
+                }
+            
+            
+            if(i == 2)
+                {
+                    $(".options_panel_main_body").html("Please enter Investigation Number  "+
+                                                        "<input type = 'text' name = 'InvestigationNo'><br>"+
+                                                        
+                                                        "<input type = 'submit' name = 'delete' value = 'delete'><br>");
+                }
+            
+            if(i == 3)
+                {
+                    $(".options_panel_main_body").html("Please enter Investigation Number first:<br>"+
+                                                        "<input type = 'text' name = 'Investigation No' placeholder='Investigation No'><br>"+
+                                                        "Please only choose filed/s you want to update:<br><br>"+
+                                                       
+                                                        "<input type = 'text' name = 'Place' placeholder='Place'><br>"+
+                                                        "<input type = 'text' name = 'Date' placeholder='Date'><br>"+
+                                                        "<input type = 'text' name = 'Crime_Type' placeholder='Crime type'><br>"+
+                                                        "<input type = 'submit' name = 'submitCrime' value = 'Update'><br>");
+                }
+            
+            });
+        $("#b3").click(function(){
+            if(i == 1)
+                {
+                    $(".options_panel_main_body").html(""+
+                                                        "Policae Station :<br>"+
+                                                        "<input type = 'text' name = 'polce_station'><br>"+
+                                                        "Investigation Number : <br>"+
+                                                        "<input type = 'text' name = 'investigationNo'><br>"+
+                                                        "Place : <br>"+
+                                                        "<input type = 'text' name = 'place'><br>"+
+                                                        "Suspect : <br>"+
+                                                        "<input type = 'txt' name = 'suspect'><br>"+
+                                                        "<input type = 'Submit' name = 'submitInvest' value = 'Insert'><br>");
+                }
+            
+            
+            if(i == 2)
+                {
+                    $(".options_panel_main_body").html("Please enter Investigation Number and Suspect :<br>"+
+                                                        "<input type = 'text' name = 'investigationNo' placeholder='investigation No'><br>"+
+                                                       "<input type = 'text' name = 'suspect' placeholder='suspect'><br>"+
+                                                        
+                                                        "<input type = 'submit' name = 'delete' value = 'delete'><br>");
+                }
+            
+            if(i == 3)
+                {
+                    $(".options_panel_main_body").html("Please enter Investigation Number and suspect first:<br>"+
+                                                        "<input type = 'text' name = 'Investigation No' placeholder='Investigation No'><br>"+
+                                                       "<input type = 'text' name = 'suspect' placeholder='Suspect'><br>"+
+                                                        "Please only choose filed/s you want to update:<br><br>"+
+                                                       
+                                                        "<input type = 'text' name = 'police_station' placeholder='Ploce Station'><br>"+
+                                                        "<input type = 'text' name = 'place' placeholder='Place'><br>"+
+                                                        "<input type = 'submit' name = 'submitCrime' value = 'Update'><br>");
+                }
+            
+            });
+        
+        
+        $("#b4").click(function(){
+            if(i == 1)
+                {
+                    $(".options_panel_main_body").html(""+
+                                                        "SSN :<br>"+
+                                                        "<input type = 'text' name = 'SSN'><br>"+
+                                                        "Investigation Number: <br>"+
+                                                        "<input type = 'text' name = 'InvestigationNo'><br>"+
+                                                        "<input type = 'Submit' name = 'submitCon' value = 'Insert'><br>");
+                }
+            
+            
+            if(i == 2)
+                {
+                    $(".options_panel_main_body").html("Please enter SSN and Investigation Number:<br> "+
+                                                        "<input type = 'text' name = 'SSN' placeholder='SSN'><br>"+
+                                                        "<input type = 'text' name = 'InvestigationNo' placeholder='Investigation Number'><br>"+
+                                                        
+                                                        "<input type = 'submit' name = 'delete' value = 'delete'><br>");
+                }
+            
+            if(i == 3)
+                {
+                    $(".options_panel_main_body").html("No data for this table");
+                }
+            
+            });
+        
+        $("#b5").click(function(){
+            if(i == 1)
+                {
+                    $(".options_panel_main_body").html(""+
+                                                        "SSN :<br>"+
+                                                        "<input type = 'text' name = 'SSN'><br>"+
+                                                        "Police Station :<br>"+
+                                                        "<input type = 'text' name = 'police_station'><br>"+
+                                                        "Release date :<br>"+
+                                                        "<input type = 'text' name = 'release_date'><br>"+
+                                                        "Next court visit :<br>"+
+                                                        "<input type = 'text' name = 'next_court_visit'><br>"+
+
+                                                        "<input type = 'Submit' name = 'submitCon' value = 'Insert'><br>");
+                }
+            
+            
+            if(i == 2)
+                {
+                    $(".options_panel_main_body").html("Please enter SSN :<br> "+
+                                                        "<input type = 'text' name = 'SSN' placeholder='SSN'><br>"+
+                                                        
+                                                        "<input type = 'submit' name = 'delete' value = 'delete'><br>");
+                }
+            
+            if(i == 3)
+                {
+                    $(".options_panel_main_body").html(""+
+                                                        "Please enter SSN first:<br>"+
+                                                        "<input type = 'text' name = 'SSN' placeholder='SSN'><br>"+
+                                                        "Please only choose filed/s you want to update:<br><br>"+
+                                                       
+                                                        "<input type = 'text' name = 'police_station' placeholder='Ploce Station'><br>"+
+                                                        "<input type = 'text' name = 'release_date' placeholder='Release date'><br>"+
+                                                       "<input type = 'text' name = 'next_court_visit' placeholder='Next court visit'><br>"+
+                                                        "<input type = 'submit' name = 'submitCrime' value = 'Update'><br>");
+                }
+            
+            });
+        
+        
+        $("#b6").click(function(){
+            if(i == 1)
+                {
+                    $(".options_panel_main_body").html(""+
+                                                        "SSN :<br>"+
+                                                        "<input type = 'text' name = 'SSN'><br>"+
+                                                        "Service Hour :<br>"+
+                                                        "<input type = 'text' name = 'service_hour'><br>"+
+                                                        "Release date :<br>"+
+                                                        "<input type = 'text' name = 'release_date'><br>"+
+                                                        "Work :<br>"+
+                                                        "<input type = 'text' name = 'work'><br>"+
+
+                                                        "<input type = 'Submit' name = 'submitCon' value = 'Insert'><br>");
+                }
+            
+            
+            if(i == 2)
+                {
+                    $(".options_panel_main_body").html("Please enter SSN :<br> "+
+                                                        "<input type = 'text' name = 'SSN' placeholder='SSN'><br>"+
+                                                        
+                                                        "<input type = 'submit' name = 'delete' value = 'delete'><br>");
+                }
+            
+            if(i == 3)
+                {
+                    $(".options_panel_main_body").html(""+
+                                                        "Please enter SSN first:<br>"+
+                                                        "<input type = 'text' name = 'SSN' placeholder='SSN'><br>"+
+                                                        "Please only choose filed/s you want to update:<br><br>"+
+                                                       
+                                                        "<input type = 'text' name = 'service_hour' placeholder='Service hour'><br>"+
+                                                        "<input type = 'text' name = 'release_date' placeholder='Release date'><br>"+
+                                                       "<input type = 'text' name = 'work' placeholder='work'><br>"+
+                                                        "<input type = 'submit' name = 'submitCrime' value = 'Update'><br>");
+                }
+            
+            });
+    });
+        
+    </script>
+</html>

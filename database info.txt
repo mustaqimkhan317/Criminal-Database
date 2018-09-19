@@ -1,0 +1,115 @@
+CREATE TABLE Crime_chart(
+	Crime_level varchar(15) not null,
+	Crime_type varchar(15),
+	Punishment varchar(30),
+	PRIMARY KEY (Crime_level)
+);
+
+CREATE TABLE Criminal(
+	Fname varchar(15),
+	Mname varchar(15),
+	Lname varchar(15),
+	SSN varchar(15) not null,
+	Birthdate date,
+	Crime_level varchar(15),
+	PRIMARY KEY (SSN),
+	FOREIGN KEY (Crime_level) references Crime_chart(Crime_level)
+);
+
+CREATE TABLE Crime(
+	investigation_no varchar(15) not null,
+	Place varchar(20),
+	crime_date date,
+	crime_type varchar(30),
+	PRIMARY KEY (investigation_no)
+);
+
+CREATE TABLE Investigation(
+	police_station varchar(20),
+	investigation_no varchar(15) not null,
+	Place varchar(20),
+	Suspect varchar(30) not null,
+	PRIMARY KEY (investigation_no,Suspect),
+	FOREIGN KEY (investigation_no) references Crime(investigation_no)
+);
+
+CREATE TABLE Convicted_for(
+	SSN varchar(15) not null,
+	investigation_no varchar(15) not null,
+	PRIMARY KEY (investigation_no,SSN),
+	FOREIGN KEY (investigation_no) references Crime(investigation_no),
+	FOREIGN KEY (SSN) references Criminal(SSN)
+);
+
+CREATE TABLE Criminal_in_Parole(
+	SSN varchar(15) not null,
+	Police_station varchar(20),
+	Release_date date,
+	Next_court_visit date,
+	PRIMARY KEY (SSN),
+	FOREIGN KEY (SSN) references Criminal(SSN)
+);
+
+CREATE TABLE Criminal_in_Jail(
+	SSN varchar(15) not null,
+	Service_hour varchar(15),
+	Release_date date,
+	Work varchar(20),
+	PRIMARY KEY (SSN),
+	FOREIGN KEY (SSN) references Criminal(SSN)
+);
+
+
+
+========================================================================================crime_chart database
+insert into crime_chart values('level 1','Robbery','1 year in Jain with labour');
+insert into crime_chart values('level 2','Multiple Robbery','3 year in Jain with labour');
+insert into crime_chart values('level 3','Kidnap','2 years in jail');
+insert into crime_chart values('level 4','Multiple Kidnap','10 years in jail');
+insert into crime_chart values('level 5','Robery and Kidnap','20 years in jail');
+insert into crime_chart values('level 6','Level 1 Murder','30 years in jail');
+insert into crime_chart values('level 7','Level 2 Murder','50 years in jail');
+insert into crime_chart values('level 8','Level 3 Murder','100 years in jail');
+insert into crime_chart values('level 9','Level 4 Murder','death penalty');
+insert into crime_chart values('level 10','Level 5 Murder','death penalty without appeal');
+
+
+
+========================================================================================criminal database
+insert into criminal values('Takrim','Rahman','Alvi','16101174','23-07-1995','level 2');
+insert into criminal values('Basher','Rahman',' ','16101175','21-04-1995','level 3');
+insert into criminal values('Farrah','Ali','Khan','16101176','12-11-1995','level 5');
+insert into criminal values('Muhit','Bhuiyan', null,'16101177','20-02-1995','level 4');
+insert into criminal values('Tasif','Bari','Akash','16101178','03-10-1995','level 2');
+
+
+========================================================================================crime database
+insert into crime values('12132112','Mirpur-1','12-01-1991','Murder');
+insert into crime values('12132113','Mirpur-10','10-05-2003','Kidnap');
+insert into crime values('12132114','Mohammadpur','12-12-1999','Murder');
+insert into crime values('12132115','Savar','12-08-2007','Robery');
+insert into crime values('12132116','Gulshan-1','12-11-2017','Murder');
+
+
+========================================================================================Investigation database
+insert into investigation values('Kafrul Station','12132112','Mirpur-1','16101175');
+insert into investigation values('Shah Ali Station','12132113','Mirpur-10','16101300');
+insert into investigation values('Gulshan Station','12132114','Mohammadpur','16102375');
+insert into investigation values('Banani Station','12132115','Savar','16101000');
+
+
+========================================================================================Convicted_for database
+insert into convicted_for values('16101175','12132112');
+insert into convicted_for values('16101176','12132113');
+insert into convicted_for values('16101177','12132114');
+insert into convicted_for values('16101178','12132115');
+
+
+========================================================================================Criminal in parole database
+insert into criminal_in_parole values('16101175','Kafrul Station','05-04-2018','03-09-2017');
+insert into criminal_in_parole values('16101174','Banani Station','05-04-2019','13-12-2016');
+
+========================================================================================Criminal in Jail database
+insert into criminal_in_jail values('16101176','3 hour','05-04-2018','Cleaning');
+insert into criminal_in_jail values('16101177','2 hour','05-04-2019','Cooking');
+

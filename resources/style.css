@@ -1,0 +1,38 @@
+header{
+    background-image: url(image/background.png);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    font-family: 'Lato', 'Arial', sans-serif;
+}
+
+
+
+.login-panel{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 300px;
+    height: 350px;
+    text-align: center; 
+    color: white;
+    border-radius: 15px;
+    background-color: rgba(220, 220, 220, 0.3);
+    font-size: 25px;
+}
+
+header input{
+    width: 200px;
+    border-radius: 6px;
+}
+
+header button{
+    font-size: 20px;
+    font-weight: 200;
+    width: 150px;
+    border-radius: 10px;
+}
+
+body{
+    margin-top: 0px;
+}
