@@ -8,29 +8,6 @@
     if ($conn->connect_error) {
     echo "There was an error!";
     }
-/*
-    if (session_status() == PHP_SESSION_NONE) {
-        header('Location: index.php');
-        exit;
-    }
-
-    session_start();
-    $userName = $_SESSION["user"];
-    $userPass = $_SESSION["pass"];
-    $sql = "SELECT * FROM login WHERE username='".$userName."'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    if ($result->num_rows > 0) {
-        if($row["password"] != $userPassword || $row["user_type"]!='admin'){
-            header('Location: index.php');
-            exit;
-        }
-    }
-    else{
-        header('Location: index.php');
-        exit;
-    }
-*/
 
 
 if(array_key_exists('logout',$_POST)){
